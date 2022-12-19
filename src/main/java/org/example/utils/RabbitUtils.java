@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 public class RabbitUtils {
     private static ConnectionFactory connectionFactory = new ConnectionFactory();
     static {
-        connectionFactory.setHost("192.168.186.139");
+        connectionFactory.setHost("192.168.186.141");
         connectionFactory.setPort(5672);
         connectionFactory.setUsername("admin");
         connectionFactory.setPassword("admin");

@@ -5,7 +5,11 @@
   <groupId>org.example</groupId>
   <artifactId>rabbitmq-demo</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <modules>
+        <module>spring-rabbitmq-producers-basic</module>
+        <module>spring-rabbitmq-consumers-basic</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>rabbitmq-demo</name>
   <url>http://maven.apache.org</url>
