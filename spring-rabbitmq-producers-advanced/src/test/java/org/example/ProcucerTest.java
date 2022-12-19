@@ -77,4 +77,15 @@ public class ProcucerTest {
         }
     }
 
+    /*
+    * 批量发送消息，让消费者每次拉取指定数量的消息
+    * */
+    @Test
+    public void testQos(){
+        for(int i=0;i<10;i++){
+            rabbitTemplate.convertAndSend("test_exchange_confirm","confirm","message ....");
+        }
+    }
+
+
 }
