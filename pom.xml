@@ -8,6 +8,7 @@
     <modules>
         <module>spring-rabbitmq-producers-basic</module>
         <module>spring-rabbitmq-consumers-basic</module>
+        <module>producer-springboot</module>
     </modules>
     <packaging>pom</packaging>
 
