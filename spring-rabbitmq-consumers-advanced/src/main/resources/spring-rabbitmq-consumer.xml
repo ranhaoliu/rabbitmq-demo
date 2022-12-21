@@ -28,8 +28,9 @@
 <!--    ref： 监听事件, queue-names：监听的队列的名字-->
     <rabbit:listener-container connection-factory="connectionFactory" acknowledge="manual" prefetch="2">
 <!--    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="none" prefetch="2">-->
-        <rabbit:listener ref="ackListener" queue-names="test_queue_confirm"></rabbit:listener>
+<!--        <rabbit:listener ref="ackListener" queue-names="test_queue_confirm"></rabbit:listener>-->
 <!--        <rabbit:listener ref="qosListener" queue-names="test_queue_confirm"></rabbit:listener>-->
+        <rabbit:listener ref="orderListener" queue-names="order_queue_dlx"></rabbit:listener>
     </rabbit:listener-container>
 
 

@@ -113,4 +113,18 @@ public class ProcucerTest {
     public void testDlx(){
         rabbitTemplate.convertAndSend("test_exchange_dlx","test.dlx.hehe","死信消息...");
     }
+
+
+//测试延时队列
+    @Test
+    public void testDelay() throws InterruptedException {
+//        1.发送订单消息，将来是在订单系统中，下单成功后发送消息.
+        rabbitTemplate.convertAndSend("order_exchange","order.msg","订单信息id=1,time=20221222,...");
+
+//        2.打印倒计时 10秒
+        for(int i=10;i>0;i--){
+            System.out.println(i+"...");
+            Thread.sleep(1000);
+        }
+    }
 }
