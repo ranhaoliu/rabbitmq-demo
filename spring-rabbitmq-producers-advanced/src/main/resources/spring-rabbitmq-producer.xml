@@ -13,7 +13,7 @@
 <!--加载配置文件-->
 <!--    <context:property-placeholder location="classpath:rabbitmq.properties"></context:property-placeholder>-->
 <!-- 定义rabbitmq connectionFactory   -->
-    <rabbit:connection-factory id="connectionFactory" host="192.168.186.141"
+    <rabbit:connection-factory id="connectionFactory" host="192.168.1.9"
                 port="5672"
                 username="admin"
                 password="admin"
@@ -37,5 +37,17 @@
             <rabbit:binding queue="test_queue_confirm" key="confirm"></rabbit:binding>
         </rabbit:bindings>
     </rabbit:direct-exchange>
+<!--===============================TTL 开始=======================    -->
+    <rabbit:queue name="test_queue_ttl" id="test_queue_ttl">
+        <rabbit:queue-arguments>
+            <entry key="x-message-ttl" value="10000" value-type="java.lang.Integer"></entry>
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+
+    <rabbit:topic-exchange name="test_exchange_ttl">
+            <rabbit:bindings>
+                <rabbit:binding pattern="ttl.#" queue="test_queue_ttl"></rabbit:binding>
+            </rabbit:bindings>
+    </rabbit:topic-exchange>
 
 </beans>

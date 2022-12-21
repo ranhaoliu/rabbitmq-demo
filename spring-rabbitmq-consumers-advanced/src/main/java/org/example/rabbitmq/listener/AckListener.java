@@ -17,6 +17,7 @@ public class AckListener implements ChannelAwareMessageListener {
         int count=0;
        try{
            //2.获取消息
+           //在这里打个断点
            System.out.println("message: "+new String(message.getBody()));
            //3.进行业务处理
            System.out.println("=====进行业务处理=======");

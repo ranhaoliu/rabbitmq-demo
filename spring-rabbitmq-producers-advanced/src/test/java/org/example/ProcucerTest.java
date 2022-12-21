@@ -66,9 +66,14 @@ public class ProcucerTest {
         //进行消息发送
 //
         //测试return，（交换机存在，队列不存在）
-        rabbitTemplate.convertAndSend("test_exchange_confirm","er_queue","message ....");
+//        rabbitTemplate.convertAndSend("test_exchange_confirm","er_queue","message ....");
        //测试return，（交换机存在，队列存在）
 //        rabbitTemplate.convertAndSend("test_exchange_confirm","confirm","message ....");
+
+        for(int i=0;i<5;i++){
+            rabbitTemplate.convertAndSend("test_exchange_confirm","confirm","message ....");
+        }
+
         //进行睡眠操作
         try {
             Thread.sleep(5000);
@@ -87,5 +92,14 @@ public class ProcucerTest {
         }
     }
 
+    /*
+    测试ttl
+    * */
+    @Test
+    public void testTtl(){
+        for(int i=0;i<10;i++){
+            rabbitTemplate.convertAndSend("test_exchange_ttl","ttl.baiqi","message ttl ...");
+        }
+    }
 
 }
