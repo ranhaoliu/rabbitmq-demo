@@ -102,4 +102,15 @@ public class ProcucerTest {
         }
     }
 
+
+/*
+* 发送测试死信消息:
+* 1.过期时间
+* 2.长度限制
+* 3.消息拒收
+* */
+    @Test
+    public void testDlx(){
+        rabbitTemplate.convertAndSend("test_exchange_dlx","test.dlx.hehe","死信消息...");
+    }
 }
